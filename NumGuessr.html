@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>NumGuessr</title>
+        <style>
+            body {
+                justify-content: center;
+                display: flex;
+                background-color: whitesmoke;
+                font-family: 'comic sans MS';
+            }
+
+            div {
+                text-align: center;
+                background-color: white;
+                padding: 20px;
+                border-radius: 20px;
+                height: fit-content;
+                box-shadow: 10px 10px 5px dodgerblue;
+            }
+
+            input[type="submit"] {
+                background-color: dodgerblue;
+                border-radius: 10px;
+                padding: 5px 30px;
+                margin-top: 25px;
+                border: 0px;
+
+            }
+
+            input[type="submit"]:hover {
+                background-color: rgb(27, 121, 215);
+                box-shadow: 0px 0px 20px;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>NumGuessr</h1>
+            <form onsubmit="return false;">
+                <label for="casellaFortunella">inserisci numero!!! (1/100)</label>
+                <input type="number" min="1" max="100" id="casellaFortunella"><br>
+                <input type="submit" value="prova" onclick="numeroFortunato()">
+            </form><br>
+            <noscript>Il tuo browser è birichino e non supporta JavaScript, <b>passa a Chrome</b></noscript>
+        </div>
+        <script>
+            var numeroRandom = Math.floor(Math.random() * 100) + 1;
+            console.log(numeroRandom);
+
+            function numeroFortunato() {
+                var casellaFortunella = document.getElementById("casellaFortunella");
+                if (casellaFortunella.value == "") {
+                    alert('"hai commesso grave errore venendo qui!"');
+                    return false;
+                }
+                if (casellaFortunella.value == numeroRandom) {
+                    alert("🥳🎉HAI VINTO🥳🎉");
+                    numeroRandom = Math.floor(Math.random() * 100) + 1;
+                    console.log(numeroRandom);
+                } else if (casellaFortunella.value > numeroRandom) {
+                    alert("⬆️troppo alto, ritenta⬆️");
+                } else {
+                    alert("⬇️troppo basso, ritenta⬇️");
+                }
+            }
+        </script>
+    </body>
+</html>

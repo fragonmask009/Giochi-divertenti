@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test di reazione</title>
+    <style>
+        body {
+            justify-content: center;
+            display: flex;
+            font-family: 'comic sans MS';
+            text-align: center;
+            padding-top: 100px;
+            background-color: whitesmoke;
+        }
+
+        div {
+            margin-top: 10px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 35%;
+            height: fit-content;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        #startButton {
+            font-family: 'comic sans MS';
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: dodgerblue;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        #startButton:hover {
+            background-color: rgb(19, 78, 137);
+        }
+
+        #message {
+            margin-top: 50px;
+            font-size: 1.8em;
+            color: #222;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Gioco di Reazione</h1>
+        <button id="startButton">Inizia</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        let startTime, timeout;
+
+        document.getElementById('startButton').addEventListener('click', function () {
+            document.getElementById('message').textContent = "Preparati...";
+            this.disabled = true;
+
+            const randomTime = Math.random() * 3000 + 2000; // 2 - 5 sec
+
+            timeout = setTimeout(() => {
+                document.getElementById('message').textContent = "CLICCA ORA!";
+                startTime = Date.now();
+                document.body.addEventListener('click', reactionHandler);
+            }, randomTime);
+        });
+
+        function reactionHandler() {
+            const reactionTime = Date.now() - startTime;
+            clearTimeout(timeout);
+            document.getElementById('message').textContent = `Hai cliccato in ${reactionTime} ms!`;
+            document.getElementById('startButton').disabled = false;
+            document.body.removeEventListener('click', reactionHandler);
+        }
+    </script>
+</body>
+
+</html>

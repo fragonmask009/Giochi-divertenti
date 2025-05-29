@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Cliccami!</title>
+        <style>
+            body {
+                background-color: dodgerblue;
+            }
+
+            button {
+                position: absolute;
+                font-family: Papyrus;
+                font-size: xx-large;
+                background-color: blueviolet;
+                color: white;
+                border: 0px;
+                padding: 20px 50px;
+                box-shadow: 5px 5px black;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="bottone" onmouseover="aspettami()" onclick="miHaiPremuto()">Cliccami!</button>
+        <noscript>Il tuo browser è birichino e non supporta JavaScript, <b>passa a Chrome</b></noscript>
+        <script>
+            const b = document.getElementById("bottone");
+            function aspettami() {
+                setTimeout(nonMiPremi, 50);
+            }
+            function nonMiPremi() {
+                let x = Math.random()*(window.innerWidth - b.offsetWidth);
+                let y = Math.random()*(window.innerHeight - b.offsetHeight);
+                b.style.left = `${x}px`;
+                b.style.top = `${y}px`;
+            }
+
+            function miHaiPremuto() {
+                alert("mi hai cliccato!!! :(");
+            }
+        </script>
+    </body>
+</html>

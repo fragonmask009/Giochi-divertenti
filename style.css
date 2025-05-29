@@ -1,0 +1,37 @@
+body {
+    justify-content: center;
+    display: flex;
+    background-color: whitesmoke;
+    font-family: sans-serif;
+}
+
+div {
+    margin-top: 10px;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 35%;
+    height: fit-content;
+}
+
+button {
+    border: 0px;
+    border-radius: 4px;
+    background-color: dodgerblue;
+    padding: 5px;
+    color: white;
+}
+
+img {
+    margin-bottom: 10px;
+}
+
+.games {
+    border-radius: 10px;
+    border: 2.5px solid black;
+}
+
+.games:hover {
+    filter: brightness(85%);
+}

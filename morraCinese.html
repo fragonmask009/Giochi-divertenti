@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>Morra Cinese</title>
+        <style>
+            body {
+                color: white;
+                background-image: url("morraCinese.JPG");
+                background-size: cover;
+                font-family: "comic sans MS";
+                justify-content: center;
+                display: flex;
+            }
+
+            div {
+                background-color: black;
+                box-shadow: 0px 0px 25px gray;
+                height: fit-content;
+                padding: 30px;
+                border-radius: 30px;
+                text-align: center;
+            }
+            button {
+                background-color: #ed1b76;
+                padding: 10px 30px;
+                font-size: xx-large;
+                border-radius: 100%;
+            }
+
+            button:hover {
+                filter: brightness(85%);
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h2>Morra Cinese</h2>
+            <button onclick="scelta('carta')">✋</button>
+            <button onclick="scelta('forbice')">✌️</button>
+            <button onclick="scelta('sasso')">✊</button><br><br>
+            <noscript>Il tuo browser è birichino e non supporta JavaScript, <b>attivalo!</b></noscript>
+        </div>
+        <script>
+            function avversario() {
+                var manoAvversario = Math.floor(Math.random() * 3);
+                if (manoAvversario == 0)
+                    return "carta";
+                else if(manoAvversario == 1)
+                    return "forbice";
+                else 
+                    return "sasso";
+                
+            }
+
+            function scelta(manoGiocatore) {
+                var manoAvversario = avversario();
+                if (manoGiocatore == "carta") {
+                    if (manoAvversario == "sasso") 
+                        alert (manoAvversario + ", hai vinto!");
+                    else if (manoAvversario == "forbice") 
+                        alert (manoAvversario + ", hai perso");
+                    else 
+                        alert (manoAvversario + ", pareggio");
+                    return;
+                }
+
+                if (manoGiocatore == "forbice") {
+                    if (manoAvversario == "sasso") 
+                        alert (manoAvversario + ", hai perso");
+                    else if (manoAvversario == "forbice") 
+                        alert (manoAvversario + ", pareggio");
+                    else 
+                        alert (manoAvversario + ", hai vinto!");
+                    
+                    return;
+                }
+
+                if (manoGiocatore == "sasso") {
+                    if (manoAvversario == "sasso")
+                        alert (manoAvversario + ", pareggio");
+                    else if (manoAvversario == "forbice")
+                        alert (manoAvversario + ", hai vinto!");
+                    else
+                        alert (manoAvversario + ", hai perso");
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <title>Generatore di frasi</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "comic sans MS";
+            background-color: blueviolet;
+            color: blue;
+        }
+
+        div {
+            background-color: pink;
+            padding: 0.69px 20.69px 29.69px;
+            border-radius: 10.69px;
+            height: fit-content;
+            width: fit-content;
+            box-shadow: 0 0 10px black;
+        }
+
+        a {
+            font-size: xx-small;
+        }
+
+        #sottotitolo {
+            margin-top: -25px;
+            font-size: xx-small;
+        }
+
+        button {
+            background-color: red;
+            color: white;
+            border: 0px;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        button:hover {
+            filter: brightness(85%);
+        }
+
+        #frase {
+        box-shadow: 0px 0px 10px black;
+        text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Generatore di frasi completamente randomiche</h1>
+        <p id="sottotitolo">(sicuramente non fatte apposta per sembrare offensive)</p>
+        <button onclick="fraseRandomControMarche()">genera</button>
+        <p id="frase">qui si troverà la tua frase</p>
+        <noscript>il tuo browser è birichino e non supporta JavaScript, <b>attivalo!</b> <a>(questo "noscript" è stato
+                scritto da quel nabbo del Marchesino)</a></noscript>
+    </div>
+    <script>
+        const sogg = ["Tancredi ", "Gastone ", "Callisto ", "Ermenegildo "];
+        const predicato = ["fa schifo ", "è brutto ", "funziona male ", "non sà riconoscere il manico dalla punta di un coltello ", "fa errori da pivellino "];
+        const complemento = ["alla potenza di 2147483648.", "come un codice scritto in Pascal.", "al punto che non riesco ad aggiungere altri complementi.", " al punto che ha il carisma di un tutorial non skippabile.", "al punto che fa più paura di un Horror."];
+        function fraseRandomControMarche() {
+            let nome = Math.floor(Math.random() * sogg.length);
+            let verbo = Math.floor(Math.random() * predicato.length);
+            let aggettivo = Math.floor(Math.random() * complemento.length);
+            document.getElementById("frase").innerHTML = sogg[nome] + predicato[verbo] + complemento[aggettivo];
+        }
+    </script>
+</body>
+
+</html>
